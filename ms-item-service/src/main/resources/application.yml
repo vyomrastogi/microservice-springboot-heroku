@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: item-service
+server:
+  port: ${PORT:8090} 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl: 
+     defaultZone: ${EUREKA_URL}/eureka/
+  instance:
+    securePortEnabled: true 
+    securePort: ${PORT:8090}
+    hostname: ${DOMAIN:localhost}
+    homePageUrl: https://${eureka.instance.hostname}/
