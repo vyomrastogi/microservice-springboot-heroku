@@ -1,8 +1,8 @@
 spring:
   application:
-    name: sales-orders-service
+    name: sales-order-service
 server:
-  port: ${PORT:8090} 
+  port: ${PORT:8100} 
 eureka:
   client:
     register-with-eureka: true
@@ -11,6 +11,6 @@ eureka:
      defaultZone: ${EUREKA_URL}/eureka/
   instance:
     securePortEnabled: true 
-    securePort: ${PORT:8090}
+    securePort: ${PORT:8100}
     hostname: ${DOMAIN:localhost}
     homePageUrl: https://${eureka.instance.hostname}/
