@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: item-service
+  cloud:
+    bus:
+      enabled: true
+    config: 
+      uri: ${CONFIG_URL}
+server: 
+  port: ${PORT:8090} 

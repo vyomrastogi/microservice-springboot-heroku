@@ -1,16 +1,14 @@
-spring:
-  application:
-    name: customer-service
-server:
-  port: ${PORT:8080} 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    serviceUrl: 
-     defaultZone: ${EUREKA_URL}/eureka/
-  instance:
-    securePortEnabled: true 
-    securePort: ${PORT:8080}
-    hostname: ${DOMAIN:localhost}
-    homePageUrl: https://${eureka.instance.hostname}/
+#eureka:
+# client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    serviceUrl: 
+#     defaultZone: ${EUREKA_URL}/eureka/
+#  instance:
+#    securePortEnabled: true 
+#    securePort: ${PORT:8080}
+#    hostname: ${DOMAIN:localhost}
+#    homePageUrl: https://${eureka.instance.hostname}/
+#spring:
+#  rabbitmq:
+#    addresses: ${RABBITMQ_BIGWIG_RX_URL}

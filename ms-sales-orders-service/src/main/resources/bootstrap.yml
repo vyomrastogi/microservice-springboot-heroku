@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: sales-order-service
+  cloud:
+    bus: 
+      enabled: true
+    config: 
+      uri: ${CONFIG_URL}
+server: 
+  port: ${PORT:8100} 
