@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import com.vyom.shipping.microservices.repository.CustomerRepository;
  */
 @RestController
 @EnableHystrix
+@RefreshScope
 public class CustomerServiceController {
 
 	private static final Logger log = LoggerFactory.getLogger(CustomerServiceController.class);
@@ -32,7 +34,7 @@ public class CustomerServiceController {
 	@Autowired
 	CustomerRepository customerRepository;
 
-	@GetMapping("/api/customer/customers")
+	@GetMapping("/api/customer-service/customers")
 	@HystrixCommand(fallbackMethod = "fallbackGetCustomers")
 	public List<Customer> getCustomers() {
 
@@ -52,7 +54,7 @@ public class CustomerServiceController {
 
 	}
 
-	@GetMapping("/api/customer/customers/email/{emailId}")
+	@GetMapping("/api/customer-service/customers/email/{emailId}")
 	@HystrixCommand(fallbackMethod = "fallbackGetCustomerDetail")
 	public Customer getCustomerDetail(@PathVariable String emailId) {
 		log.info(String.format("Retrieving  customer details for %s", emailId));

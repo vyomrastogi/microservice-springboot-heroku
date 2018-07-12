@@ -5,6 +5,7 @@ spring:
     bus: 
       enabled: true
     config: 
-      uri: ${CONFIG_URL}
+      #uri: ${CONFIG_URL}
+      uri: https://ms-config-server.herokuapp.com
 server: 
   port: ${PORT:8100} 
