@@ -2,8 +2,8 @@
 
 Contains of following components 
 1. customer-service  [![Build Status](https://travis-ci.com/vyomrastogi/customer-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/customer-service)
-2. item-service  -- done
-3. sales-order-service  -- done
+2. item-service  [![Build Status](https://travis-ci.com/vyomrastogi/item-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/item-service)
+3. sales-order-service  [![Build Status](https://travis-ci.com/vyomrastogi/sales-order-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/sales-order-service)
 4. eureka-server --done   
 5. config-server --done   <webhook auto refresh is not working, looks like heroku randomly assigns rabbit mq instances>
 6. zipkin-server --done - <traces not visible though, check version compitability>
