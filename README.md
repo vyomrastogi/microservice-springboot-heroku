@@ -1,12 +1,13 @@
 ## Microservices - Online Shipping 
 
 Contains of following components 
-1. customer-service  -- done
+1. customer-service  [![Build Status](https://travis-ci.com/vyomrastogi/customer-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/customer-service)
 2. item-service  -- done
 3. sales-order-service  -- done
 4. eureka-server --done
 5. config-server --done
 6. zipkin-server --done
+7. zuul-server [![Build Status](https://travis-ci.com/vyomrastogi/zuul-server.svg?branch=master)](https://travis-ci.com/vyomrastogi/zuul-server)
 
 Technology stack to achieve 
 
