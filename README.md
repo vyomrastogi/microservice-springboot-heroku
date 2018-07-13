@@ -4,9 +4,9 @@ Contains of following components
 1. customer-service  [![Build Status](https://travis-ci.com/vyomrastogi/customer-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/customer-service)
 2. item-service  -- done
 3. sales-order-service  -- done
-4. eureka-server --done
-5. config-server --done
-6. zipkin-server --done
+4. eureka-server --done   
+5. config-server --done   <webhook auto refresh is not working, looks like heroku randomly assigns rabbit mq instances>
+6. zipkin-server --done - <traces not visible though, check version compitability>
 7. zuul-server [![Build Status](https://travis-ci.com/vyomrastogi/zuul-server.svg?branch=master)](https://travis-ci.com/vyomrastogi/zuul-server)
 
 Technology stack to achieve 
