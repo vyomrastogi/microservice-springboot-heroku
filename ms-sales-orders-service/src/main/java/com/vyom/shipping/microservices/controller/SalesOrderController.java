@@ -51,9 +51,9 @@ public class SalesOrderController {
 	@Autowired
 	OrderLineItemRepository orderLineItemRepository;
 
-	private static final String URL = "https://ms-item-service.herokuapp.com/api/item/items/";
+	private static final String URL = "https://ms-item-service.herokuapp.com/api/item-service/items/";
 
-	@PostMapping("/api/salesorder/order")
+	@PostMapping("/api/sales-order-service/order")
 	public String createOrder(@RequestBody CreateOrderRequest body) {
 
 		// Verify email address
@@ -115,7 +115,7 @@ public class SalesOrderController {
 		return savedOrderId.toString();
 	}
 
-	@GetMapping("api/salesorder/orderId/{orderId}")
+	@GetMapping("api/sales-order-service/orderId/{orderId}")
 	public SalesOrderResponse getSalesOrderDetails(@PathVariable Long orderId) {
 		Optional<SalesOrder> salesOrderEntity = salesOrderRepository.findById(orderId);
 		List<String> itemList = orderLineItemRepository.findItemNamesByOrderId(orderId);

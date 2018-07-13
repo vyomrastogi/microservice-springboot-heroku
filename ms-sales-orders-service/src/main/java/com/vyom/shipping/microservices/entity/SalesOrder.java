@@ -20,7 +20,7 @@ import javax.persistence.Id;
 public class SalesOrder {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "order_id")
 	private Long orderId;
 	@Column(name = "order_description")

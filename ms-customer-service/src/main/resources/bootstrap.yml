@@ -8,3 +8,24 @@ spring:
       uri: ${CONFIG_URL}
 server: 
   port: ${PORT:8080} 
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true
+    env:
+      enabled: true
+    metrics:
+      enabled: true
+    configprops:
+      enabled: true
+    health:
+      enabled: true
+  endpoints: 
+    web:
+      exposure:
+        include:
+        - info
+        - health
+        - env
+        - configprops
+        - metrics

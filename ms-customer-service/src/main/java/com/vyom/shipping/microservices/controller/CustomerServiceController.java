@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.vyom.shipping.microservices.config.DemoConfigs;
 import com.vyom.shipping.microservices.entity.Customer;
 import com.vyom.shipping.microservices.repository.CustomerRepository;
 
@@ -33,6 +34,9 @@ public class CustomerServiceController {
 
 	@Autowired
 	CustomerRepository customerRepository;
+
+	@Autowired
+	DemoConfigs config;
 
 	@GetMapping("/api/customer-service/customers")
 	@HystrixCommand(fallbackMethod = "fallbackGetCustomers")
@@ -72,6 +76,16 @@ public class CustomerServiceController {
 		Customer customer = new Customer(emailId, "Fallback", "GetCustomers");
 		return customer;
 
+	}
+
+	@GetMapping("/api/customer-service/fault-demo")
+	@HystrixCommand(fallbackMethod = "fallBackDemo")
+	public Customer getEmployeeDetailsFaultTolerance() {
+		throw new RuntimeException("Fallback Demo");
+	}
+
+	public Customer fallBackDemo() {
+		return new Customer(config.getEmailId(), config.getFirstName(), config.getLastName());
 	}
 
 }

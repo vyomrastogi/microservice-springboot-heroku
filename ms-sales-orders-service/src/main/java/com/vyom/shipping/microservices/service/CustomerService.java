@@ -17,7 +17,7 @@ import com.vyom.shipping.microservices.model.Customer;
 @FeignClient(name="customer-service",url="https://ms-customer-service.herokuapp.com")
 public interface CustomerService {
 	
-	@GetMapping("/api/customer/customers/email/{emailId}")
+	@GetMapping("/api/customer-service/customers/email/{emailId}")
 	public Customer getCustomerDetail(@PathVariable String emailId);
 
 }

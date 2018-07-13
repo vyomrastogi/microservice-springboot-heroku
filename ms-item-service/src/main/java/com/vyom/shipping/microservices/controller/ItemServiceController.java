@@ -32,7 +32,7 @@ public class ItemServiceController {
 	@Autowired
 	ItemRepository itemRepository;
 
-	@GetMapping("/api/item/items")
+	@GetMapping("/api/item-service/items")
 	@HystrixCommand(fallbackMethod = "fallbackGetItems")
 	public List<Item> getItems() {
 
@@ -52,7 +52,7 @@ public class ItemServiceController {
 
 	}
 
-	@GetMapping("/api/item/items/{name}")
+	@GetMapping("/api/item-service/items/{name}")
 	@HystrixCommand(fallbackMethod = "fallbackGetItemsDetail")
 	public List<Item> getItemDetail(@PathVariable List<String> name) {
 		log.info(String.format("Retrieving  item details for %s", name));

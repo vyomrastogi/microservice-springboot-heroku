@@ -2,10 +2,30 @@ spring:
   application:
     name: sales-order-service
   cloud:
-    bus: 
+    bus:
       enabled: true
     config: 
-      #uri: ${CONFIG_URL}
-      uri: https://ms-config-server.herokuapp.com
+      uri: ${CONFIG_URL}
 server: 
   port: ${PORT:8100} 
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true
+    env:
+      enabled: true
+    metrics:
+      enabled: true
+    configprops:
+      enabled: true
+    health:
+      enabled: true
+  endpoints: 
+    web:
+      exposure:
+        include:
+        - info
+        - health
+        - env
+        - configprops
+        - metrics
