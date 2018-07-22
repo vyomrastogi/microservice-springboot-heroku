@@ -1,9 +1,21 @@
-## Case Study - Microservices
+## A Case Study on Microservices with SpringBoot
 
 The repository contains various project built to do a case study on "How to make microservices with Spring Boot? " 
 
 -----------------------------------------------------------------------------------
 
+What is a Service ? 
+> A piece of software to provide a particular functionality to different software/components in the application. 
+
+Example : 
+
+![Sample Service Flow](https://mermaidjs.github.io/mermaid-live-editor/#/view/eyJjb2RlIjoiZ3JhcGggTFJcbldlYnNpdGUtLT5TZXJ2aWNlXG5Nb2JpbGVBcHAtLT5TZXJ2aWNlXG5EZXNrdG9wQXBwLS0-U2VydmljZVxuU2VydmljZS0tPkRhdGEoZGF0YWJhc2UpXG5cbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)
+
+graph LR
+Website-->Service
+MobileApp-->Service
+DesktopApp-->Service
+Service-->Data(database)
 
 #### Technology Diagram
 
