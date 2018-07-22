@@ -3,13 +3,37 @@
 The repository contains various project built to do a case study on "How to make microservices with Spring Boot? " 
 
 -----------------------------------------------------------------------------------
+### Concepts 
 
 What is a Service ? 
-> A piece of software to provide a particular functionality to different software/components in the application. 
+> A piece of software to provide a particular functionality to different software/components in the application. ![Sample Service Flow](https://github.com/vyomrastogi/ms-online-shipping/blob/master/diag/sampleService.PNG)
 
-Example : 
+What is a Microservice ?
+> Some salient features of a microservice are : 
+> * A service oriented architecture done well 
+> * Efficiently scalable application
+> * High performance application
+> * Single service with a single focus/functionality to deliver
+> * Technology agnostic API 
+> * Lightweight communication
+> * Independent data storage 
+> * Independently changeable and deployable
 
-![Sample Service Flow](https://github.com/vyomrastogi/ms-online-shipping/blob/master/diag/sampleService.PNG)
+What is the need for a Microservice ? 
+> * To respond to required changes quickly or adapt rapidly
+> * For reliability, as each microservice only has single functionality, they are less prone to errors
+> * Automated CI/CD is easier with smaller components
+> * On demand hosting technology like Cloud Foundry, Heroku, Azure, GCP 
+> * Shorter development times
+> * Decoupling of changeable parts
+> * Faster issue resolutions
+
+Characteristics of a Microservice 
+
+| | | |
+|-|-|-|
+|Highly Cohesive (Single Focus)| Autonomous (Self reliable on serving requests) | Business Domain Driven
+| Resiliency (able to serve with degraded func./ register -deregister) | Observable (monitoring, centralized logging) | Automation (CI/CD)
 
 
 #### Technology Diagram
@@ -55,52 +79,51 @@ Example :
 |config-server|Centralized configuration management for all components|link| Completed| :x: Pending|
 
 
-### Microservices
+#### APIs
 
-This collection is monorepo of individual services above mentioned. The key concepts attempted to be shown here are few principles of microservices
- - Autonomous - each service is self contained
- - Business Domain Driven
- - Resilience - Ribbon/Eureka/Zuul to provide high availablity
- - Observable - Logging and tracing
- - Automation - Continuous Deployment with Travis CI. 
 
-```
-ms-customer-service 
-API :  
-1.  https://localhost/api/customer/customers
-2.  https://localhost/api/customer/customers/{emailId}
-```
+>ms-customer-service 
+>```
+>1.  http://localhost/api/customer/customer-service
+>2.  http://localhost/api/customer/customer-service/{emailId}
+>```
 
-```
-ms-item-service 
-API :  
-1.  https://localhost/api/item/items
-2.  https://localhost/api/item/items/{item names}
-```
+>ms-item-service 
+>```
+>1.  http://localhost/api/item/item-service
+>2.  http://localhost/api/item/item-service/{item names}
+>```
 
-```
-ms-sales-order-service 
-API :  
-1.  http://localhost:8100/api/salesorder/order
-    Request Sample : 
-	{
-	"orderDescription" : "test description",
-	"orderDate" : "2018-06-04",
-	"customerEmailId": "some.person@email.com",
-	"itemNames" : [ "Item1","Item3" ]
-	}
-	
-2.  http://localhost:8100/api/salesorder/orderId/1
-	Response Sample : 
-	{
-    "orderId": 1,
-    "customerEmailId": "some.person@email.com",
-    "orderDescription": "test description",
-    "orderDate": "2018-06-04T00:00:00.000+0000",
-    "totalPrice": 400,
-    "itemNames": [
-        "Item1",
-        "Item3"
-    ]
-   }
-```
+>ms-sales-order-service
+>``` 
+>1.  http://localhost:8100/api/sales-order-service/order
+>    Request Sample : 
+>	{
+>	"orderDescription" : "test description",
+>	"orderDate" : "2018-06-04",
+>	"customerEmailId": "some.person@email.com",
+>	"itemNames" : [ "Item1","Item3" ]
+>	}
+>	
+>2.  http://localhost:8100/api/sales-order-service/orderId/1
+>	Response Sample : 
+>	{
+>    "orderId": 1,
+>    "customerEmailId": "some.person@email.com",
+>    "orderDescription": "test description",
+>    "orderDate": "2018-06-04T00:00:00.000+0000",
+>    "totalPrice": 400,
+>    "itemNames": [
+>        "Item1",
+>        "Item3"
+>   ]
+>   }
+>```
+
+
+#### Issues Faced
+
+1. Zuul not able to route request to proper host 
+2. Feign not able to pick correct server host from registry
+3. Trace log not showing up in zipkin ui 
+4. Travis CI - Incorrect heroku key encryption 
