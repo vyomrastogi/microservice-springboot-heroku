@@ -1,4 +1,4 @@
-package com.vyom.shipping.microservices;
+package com.vyom.generic.microservices;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
