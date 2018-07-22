@@ -9,17 +9,12 @@ What is a Service ?
 
 Example : 
 
-![Sample Service Flow](https://mermaidjs.github.io/mermaid-live-editor/#/view/eyJjb2RlIjoiZ3JhcGggTFJcbldlYnNpdGUtLT5TZXJ2aWNlXG5Nb2JpbGVBcHAtLT5TZXJ2aWNlXG5EZXNrdG9wQXBwLS0-U2VydmljZVxuU2VydmljZS0tPkRhdGEoZGF0YWJhc2UpXG5cbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)
+![Sample Service Flow](https://github.com/vyomrastogi/ms-online-shipping/blob/master/diag/sampleService.PNG)
 
-graph LR
-Website-->Service
-MobileApp-->Service
-DesktopApp-->Service
-Service-->Data(database)
 
 #### Technology Diagram
 
-![Technology Stack](https://github.com/vyomrastogi/ms-online-shipping/blob/master/technology_diag.png)
+![Technology Stack](https://github.com/vyomrastogi/ms-online-shipping/blob/master/diag/technology_diag.png)
 
 
 **TODO List**
