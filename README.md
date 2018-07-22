@@ -1,17 +1,51 @@
-## Microservices - Online Shipping 
+## Case Study - Microservices
 
-Contains of following components 
-1. customer-service  [![Build Status](https://travis-ci.com/vyomrastogi/customer-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/customer-service)
-2. item-service  [![Build Status](https://travis-ci.com/vyomrastogi/item-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/item-service)
-3. sales-order-service  [![Build Status](https://travis-ci.com/vyomrastogi/sales-order-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/sales-order-service)
-4. eureka-server --done   
-5. config-server --done   <webhook auto refresh is not working, looks like heroku randomly assigns rabbit mq instances>
-6. zipkin-server --done - <traces not visible though, check version compitability>
-7. zuul-server [![Build Status](https://travis-ci.com/vyomrastogi/zuul-server.svg?branch=master)](https://travis-ci.com/vyomrastogi/zuul-server)
+The repository contains various project built to do a case study on "How to make microservices with Spring Boot? " 
 
-Technology stack to achieve 
+-----------------------------------------------------------------------------------
+
+
+#### Technology Diagram
 
 ![Technology Stack](https://github.com/vyomrastogi/ms-online-shipping/blob/master/technology_diag.png)
+
+
+**TODO List**
+
+- [X] add basic flow diagram
+- [ ] add various components in each service
+- [ ] show how zuul,config and discovery come into play
+---
+
+#### Tools/Frameworks Used 
+
+1. **Spring Boot** - for rest api and various component development
+	* Actuator - for application metrics
+2. **Spring Cloud**
+	* Cloud Config Server - for central configuration management
+	* Cloud Config Client 
+	* Spring Slueth - for tracing of various downstream calls, health metrics of service
+	* Cloud Bus - for refreshing configuration without restart
+	* Eureka Dicsovery - for API hearbeat registry
+	* Zuul API Gateway - For API proxy
+3. **Zipkin Server** - to view tracing data in timeline view 
+4. **Heroku** - PAAS platform for deploying various applications 
+5. **Travis** - For auto build and deploy from github
+6. **LogDNA** - For centralized logging from heroku
+
+---
+
+#### Status 
+
+|Service |Description|API|Development|CI/CD|
+|--------|-----------|---|------|-----|
+|customer-service| api to retrieve customer details| link| Completed|[![Build Status](https://travis-ci.com/vyomrastogi/customer-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/customer-service)|
+|item-service| api to retrieve item details like name, descp, cost etc.| link| Completed| [![Build Status](https://travis-ci.com/vyomrastogi/item-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/item-service)|
+|sales-order-service| api to add order details to DB using customer-service & item-service for order validation|link| Completed| [![Build Status](https://travis-ci.com/vyomrastogi/sales-order-service.svg?branch=master)](https://travis-ci.com/vyomrastogi/sales-order-service)|
+|zipkin-server| zipkin ui to view request traceability|link| Completed| [![Build Status](https://travis-ci.com/vyomrastogi/zuul-server.svg?branch=master)](https://travis-ci.com/vyomrastogi/zuul-server)|
+|eureka-server| Eureka discovery server to register service health and available servers|link| Completed| :x: Pending|
+|zuul-server| Provides proxy url for routing to all services|link| Completed| :x: Pending|
+|config-server|Centralized configuration management for all components|link| Completed| :x: Pending|
 
 
 ### Microservices
