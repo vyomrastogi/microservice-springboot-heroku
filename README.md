@@ -35,6 +35,7 @@ Characteristics of a Microservice
 |Highly Cohesive (Single Focus)| Autonomous (Self reliable on serving requests) | Business Domain Driven
 | Resiliency (able to serve with degraded func./ register -deregister) | Observable (monitoring, centralized logging) | Automation (CI/CD)
 
+---
 
 #### Technology Diagram
 
@@ -78,47 +79,47 @@ Characteristics of a Microservice
 |zuul-server| Provides proxy url for routing to all services|link| Completed| :x: Pending|
 |config-server|Centralized configuration management for all components|link| Completed| :x: Pending|
 
-
+---
 #### APIs
 
 
->ms-customer-service 
->```
->1.  http://localhost/api/customer/customer-service
->2.  http://localhost/api/customer/customer-service/{emailId}
->```
+###### ms-customer-service 
+```
+1.  http://localhost/api/customer/customer-service
+2.  http://localhost/api/customer/customer-service/{emailId}
+```
 
->ms-item-service 
->```
->1.  http://localhost/api/item/item-service
->2.  http://localhost/api/item/item-service/{item names}
->```
+###### ms-item-service 
+```
+1.  http://localhost/api/item/item-service
+2.  http://localhost/api/item/item-service/{item names}
+```
 
->ms-sales-order-service
->``` 
->1.  http://localhost:8100/api/sales-order-service/order
->    Request Sample : 
->	{
->	"orderDescription" : "test description",
->	"orderDate" : "2018-06-04",
->	"customerEmailId": "some.person@email.com",
->	"itemNames" : [ "Item1","Item3" ]
->	}
->	
->2.  http://localhost:8100/api/sales-order-service/orderId/1
->	Response Sample : 
->	{
->    "orderId": 1,
->    "customerEmailId": "some.person@email.com",
->    "orderDescription": "test description",
->    "orderDate": "2018-06-04T00:00:00.000+0000",
->    "totalPrice": 400,
->    "itemNames": [
->        "Item1",
->        "Item3"
->   ]
->   }
->```
+###### ms-sales-order-service
+``` 
+1.  http://localhost:8100/api/sales-order-service/order
+    Request Sample : 
+	{
+	"orderDescription" : "test description",
+	"orderDate" : "2018-06-04",
+	"customerEmailId": "some.person@email.com",
+	"itemNames" : [ "Item1","Item3" ]
+	}
+	
+2.  http://localhost:8100/api/sales-order-service/orderId/1
+	Response Sample : 
+	{
+    "orderId": 1,
+    "customerEmailId": "some.person@email.com",
+    "orderDescription": "test description",
+    "orderDate": "2018-06-04T00:00:00.000+0000",
+    "totalPrice": 400,
+    "itemNames": [
+        "Item1",
+        "Item3"
+   ]
+   }
+```
 
 
 #### Issues Faced
